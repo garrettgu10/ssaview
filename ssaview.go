@@ -47,7 +47,7 @@ func toSSA(source io.Reader, fileName, packageName string, debug bool) ([]byte, 
 		return nil, err
 	}
 
-	ssaProg := ssautil.CreateProgram(prog, ssa.NaiveForm|ssa.BuildSerially)
+	ssaProg := ssautil.CreateProgram(prog, ssa.BuildSerially)
 	ssaProg.Build()
 	mainPkg := ssaProg.Package(prog.InitialPackages()[0].Pkg)
 
